@@ -7,32 +7,14 @@ function  generatePassword(){
   var lengthpass = "";
   var criteria="";
   var pass = "";
+  var len = prompt("What is the length? ");
 
-  if(type == "upppercase"){
-
-    criteria += upperCase;
-  }
-  if(type == "lowercase"){
-
-    criteria += lowerCase;
-  }
-  if(type == "symbols"){
-
-    criteria += symbols;
-  }
-  if(type == "numberic"){
-
-    criteria += numbers;
-  }
-  return pass;
+  len=parseInt(len);
+ 
+  
+  return len;
 }
 
-function alert(){
-alert
-
-
-
-}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -40,7 +22,6 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-""
   passwordText.innerHTML = password;
 
 }
