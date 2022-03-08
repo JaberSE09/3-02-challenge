@@ -1,18 +1,23 @@
 // Assignment code here
-function  generatePassword(){
+function generatePassword() {
   var numbers = "0123456789";
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var symbols = "!@#$%^&*()";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lengthpass = "";
-  var criteria="";
+  var criteria = "";
   var pass = "";
-  var len = prompt("What is the length? ");
 
-  len=parseInt(len);
- 
-  
-  return len;
+  //create the length
+  var x = parseInt(prompt("Enter a lenth", "0"), 10);
+
+  while (x < 8 || x > 128) {
+    x = parseInt(prompt("Enter a length", "0"), 10);
+  }
+
+
+
+  return x;
 }
 
 // Get references to the #generate element
