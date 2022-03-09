@@ -9,20 +9,21 @@ function generatePassword() {
   var pass = "";
 
   //create the length
-  var x = parseInt(prompt("Enter a lenth", "0"), 10);
+   lengthpass = parseInt(prompt("Enter a lenth", "0"), 10);
 
-  while (x < 8 || x > 128) {
-    x = parseInt(prompt("Enter a length", "0"), 10);
+  while (lengthpass< 8 || lengthpass > 128) {
+    lengthpass = parseInt(prompt("Enter a length", "0"), 10);
   }
-  var y = prompt("What charactors do you want separated by (,) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
 
-  while (y === "") {
-    y = prompt("What charactors do you want separated by ( ) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
+  criteria = prompt("What charactors do you want separated by (,) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
+
+  while (criteria === "") {
+   criteria = prompt("What charactors do you want separated by ( ) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
   }
-  console.log(y[0])
-  for (let x = 0; x < y.length; x++) {
 
-    switch (y[x]) {
+  for (let x = 0; x < criteria.length; x++) {
+
+    switch (criteria[x]) {
       case "uppercase":
         pass += upperCase;
         break;
@@ -39,7 +40,15 @@ function generatePassword() {
         break;
     }
   }
-return pass;
+  
+var password = "";
+  for (var i = 0; i <= lengthpass; i++) {
+    var randomNumber = Math.floor(Math.random() * pass.length);
+    password += pass.substring(randomNumber, randomNumber +1);
+   }
+
+return password;
+
 }
 
 
