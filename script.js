@@ -14,11 +14,34 @@ function generatePassword() {
   while (x < 8 || x > 128) {
     x = parseInt(prompt("Enter a length", "0"), 10);
   }
+  var y = prompt("What charactors do you want separated by (,) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
 
+  while (y === "") {
+    y = prompt("What charactors do you want separated by ( ) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
+  }
+  console.log(y[0])
+  for (let x = 0; x < y.length; x++) {
 
-
-  return x;
+    switch (y[x]) {
+      case "uppercase":
+        pass += upperCase;
+        break;
+      case "lowercase":
+        pass += lowerCase
+        break;
+      case "numeric":
+        pass += numbers;
+        break;
+      case "special":
+        pass += symbols;
+        break;
+      default:
+        break;
+    }
+  }
+return pass;
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
