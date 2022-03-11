@@ -1,5 +1,6 @@
 // Assignment code here
 function generatePassword() {
+  //charactor declaration
   var numbers = "0123456789";
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var symbols = "!@#$%^&*()";
@@ -9,27 +10,28 @@ function generatePassword() {
   var pass = "";
 
   //create the length
-  lengthpass = parseInt(prompt("Enter a lenth", "0"), 10);
-
-  while (lengthpass < 8 || lengthpass > 128) {
+   lengthpass = parseInt(prompt("Enter a lenth", "0"), 10);
+//validates the length
+  while (lengthpass< 8 || lengthpass > 128) {
     lengthpass = parseInt(prompt("Enter a length", "0"), 10);
   }
 
-  criteria = prompt("What charactors do you want separated by (,) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
+  //charactor imput with spaces
+  criteria = prompt("What charactors do you want separated by ( ) (uppercase,lowercase,numeric,special)").toLowerCase();
 
-  while (criteria === "") {
-    criteria = prompt("What charactors do you want separated by ( ) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
+  //checks to seee
+  while (criteria === "" || criteria === undefined) {
+   criteria = prompt("What charactors do you want separated by ( ) (uppercase,lowercase,numeric,special)").toLowerCase().split(" ");
   }
 
-  for (let i = 0; i < criteria.length; i++) {
-    var char = i + 1
-    if (criteria[i] != "uppercase" && criteria[i] != "lowercase" && criteria[i] != "numeric" && criteria[i] != "special") {
-      criteria[i] = prompt("Please enter charactor " + char);
-    }
-  }
+  //splits it by space
+  criteria = criteria.split(" ")
+
+  //runs the criteria through to see what to add to pass
   for (let x = 0; x < criteria.length; x++) {
-
-    switch (criteria[x]) {
+ 
+    var counter = x + 1
+  switch (criteria[x]) {
       case "uppercase":
         pass += upperCase;
         break;
@@ -46,14 +48,16 @@ function generatePassword() {
         break;
     }
   }
+  
 
-  var password = "";
+  //creates a random number with the string pass and a random charactor from pass
+var password = "";
   for (var i = 0; i <= lengthpass; i++) {
     var randomNumber = Math.floor(Math.random() * pass.length);
-    password += pass.substring(randomNumber, randomNumber + 1);
-  }
+    password += pass.substring(randomNumber, randomNumber +1);
+   }
 
-  return password;
+return password;
 
 }
 
